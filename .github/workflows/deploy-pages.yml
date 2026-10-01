@@ -1,4 +1,4 @@
-name: Deploy Flutter app to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -20,22 +20,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.22.3
+          flutter-version: 3.24.0
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build web app
+      - name: Build web
         run: flutter build web --release --base-href "/kinder-flohmarkt-app/"
 
-      - name: Configure GitHub Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
@@ -46,7 +46,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
