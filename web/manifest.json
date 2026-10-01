@@ -1,0 +1,11 @@
+{
+  "name": "Kinder-Flohmarkt",
+  "short_name": "Flohmarkt",
+  "start_url": "/kinder-flohmarkt-app/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f57c00",
+  "description": "Kinder-Flohmarkt App",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false
+}
